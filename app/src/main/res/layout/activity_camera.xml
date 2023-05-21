@@ -12,4 +12,9 @@
         tools:layout_editor_absoluteX="-206dp"
         tools:layout_editor_absoluteY="-247dp" />
 
+    <com.aaa.scan_activity.LandmarkView
+        android:id="@+id/landmarkView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
