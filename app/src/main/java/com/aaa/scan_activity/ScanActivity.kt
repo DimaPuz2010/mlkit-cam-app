@@ -34,15 +34,17 @@ class ScanActivity : AppCompatActivity(){
         preview.setSurfaceProvider(surface.surfaceProvider)
 
         val cameraSelector = CameraSelector.Builder()
-            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+            .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
             .build()
 
         val analizer = ImageAnalysis.Builder()
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
+
+        val landmarkView = findViewById<LandmarkView>(R.id.landmarkView)
         analizer.setAnalyzer(
             mainExecutor,
-            ImageAnalizer()
+            ImageAnalizer(landmarkView)
         )
         cameraProvider?.bindToLifecycle(this, cameraSelector, preview, analizer)
     }
